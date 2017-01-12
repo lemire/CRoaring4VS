@@ -161,6 +161,25 @@ namespace roaring {
             Otherwise, it returns false.
           */
         bool select(uint32_t rank, uint32_t *element) const;
+        
+        /**
+        * Return the largest value (if not empty)
+        *
+        */
+        uint32_t maximum() const;
+
+
+        /**
+        * Return the smallest value (if not empty)
+        *
+        */
+        uint32_t minimum() const; 
+
+
+        /**
+        * Returns the number of integers that are smaller or equal to x.
+        */
+        uint64_t rank(uint32_t x) const;
 
         /**
          * write a bitmap to a char buffer. This is meant to be compatible with

@@ -220,6 +220,28 @@ bool Roaring4VS::select(uint32_t rank, uint32_t *element) const {
     return roaring_bitmap_select((roaring_bitmap_t*)roaring, rank, element);
 }
 
+
+/**
+* Return the largest value (if not empty)
+*
+*/
+uint32_t Roaring4VS::maximum() const { return roaring_bitmap_maximum((roaring_bitmap_t*)roaring); }
+
+
+/**
+* Return the smallest value (if not empty)
+*
+*/
+uint32_t Roaring4VS::minimum() const { return roaring_bitmap_minimum((roaring_bitmap_t*)roaring); }
+
+
+/**
+* Returns the number of integers that are smaller or equal to x.
+*/
+uint64_t Roaring4VS::rank(uint32_t x) const {
+        return roaring_bitmap_rank((roaring_bitmap_t*)roaring, x);
+}
+
 /**
 * write a bitmap to a char buffer. This is meant to be compatible with
 * the
